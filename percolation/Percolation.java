@@ -20,11 +20,9 @@ public class Percolation {
 		if(row < 0 || col < 0 || row >= size || col >= size ){
 			throw new java.lang.IndexOutOfBoundsException("The row or col is out of index");
 		}
-		if(list[row][col] == 0) {
-			list[row][col] = 1;
-			open_count++;
-			connect(row, col);
-		}
+		list[row][col] = 1;
+		open_count++;
+		connect(row, col);
 	}
 	
 	private int get_index_union(int row, int col) {return size * row + col;}
@@ -38,38 +36,38 @@ public class Percolation {
 		if(col != 0){
 			int left = get_index_union(row, col-1);
 			if(this.isOpen(row, col-1)) {
-				//System.out.println("connect left");
+				System.out.println("connect left");
 				union_list.union(self_index, left);
 			}
 		}
 		if(col != size-1){
 			int right = get_index_union(row, col+1);
 			if(this.isOpen(row, col+1)) {
-				//System.out.println("connect right");
+				System.out.println("connect right");
 				union_list.union(self_index, right);
 			}
 		}
 		if(row-1 >= 0){
 			int up = get_index_union(row-1, col);
 			if(this.isOpen(row-1, col)) {
-				//System.out.println("connect up");
+				System.out.println("connect up");
 				union_list.union(self_index, up);
 			}
 		}
 		if(row+1 < size){
 			int down = get_index_union(row + 1, col);
 			if(this.isOpen(row+1, col)) {
-				//System.out.println("connect down");
+				System.out.println("connect down");
 				union_list.union(self_index, down);
 			}
 		}
 
 		if(self_index < size) {
-			//System.out.println("On the top");
+			System.out.println("On the top");
 			union_list.union(self_index, size*size);
 		}
 		if(self_index >= size*(size-1)) {
-			//System.out.println("At the bottom");
+			System.out.println("At the bottom");
 			union_list.union(self_index, size*size + 1);
 		}
 

@@ -1,10 +1,12 @@
+import edu.princeton.cs.algs4.QuickFindUF;
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {
 	private int[][] list;
 	private int size;
 	private int open_count;
-	private WeightedQuickUnionUF union_list;
+	private QuickFindUF union_list;
+	private QuickFindUF back_wash_solution;
 	
 	public Percolation(int N){
 		// create N-by-N grid, with all sites initially blocked
@@ -12,7 +14,8 @@ public class Percolation {
 		list = new int[N][N];
 		size = N;
 		open_count = 0; 
-		union_list = new WeightedQuickUnionUF(N*N + 2);
+		union_list = new QuickFindUF(N*N + 2);
+		back_wash_solution = new QuickFindUF(N*N + 1);
 	}
 	
 	public void open(int row, int col){
@@ -40,6 +43,7 @@ public class Percolation {
 			if(this.isOpen(row, col-1)) {
 				//System.out.println("connect left");
 				union_list.union(self_index, left);
+				back_wash_solution.union(self_index, left);
 			}
 		}
 		if(col != size-1){
@@ -47,6 +51,7 @@ public class Percolation {
 			if(this.isOpen(row, col+1)) {
 				//System.out.println("connect right");
 				union_list.union(self_index, right);
+				back_wash_solution.union(self_index, right);
 			}
 		}
 		if(row-1 >= 0){
@@ -54,6 +59,7 @@ public class Percolation {
 			if(this.isOpen(row-1, col)) {
 				//System.out.println("connect up");
 				union_list.union(self_index, up);
+				back_wash_solution.union(self_index, up);
 			}
 		}
 		if(row+1 < size){
@@ -61,12 +67,14 @@ public class Percolation {
 			if(this.isOpen(row+1, col)) {
 				//System.out.println("connect down");
 				union_list.union(self_index, down);
+				back_wash_solution.union(self_index, down);
 			}
 		}
 
 		if(self_index < size) {
 			//System.out.println("On the top");
 			union_list.union(self_index, size*size);
+			back_wash_solution.union(self_index, size*size);
 		}
 		if(self_index >= size*(size-1)) {
 			//System.out.println("At the bottom");
@@ -95,7 +103,7 @@ public class Percolation {
 			throw new java.lang.IndexOutOfBoundsException("The row or col is out of index");
 		}
 		int index = size * row + col;
-		return union_list.connected(index, size*size);
+		return back_wash_solution.connected(index, size*size);
 	}
 	
 	public int numberOfOpenSites(){

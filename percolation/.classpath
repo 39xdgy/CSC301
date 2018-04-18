@@ -3,5 +3,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/CS301"/>
 	<classpathentry kind="src" path=""/>
+	<classpathentry kind="lib" path="/home/local/CORNELL-COLLEGE/jwang20/Downloads/algs4.jar"/>
 	<classpathentry kind="output" path=""/>
 </classpath>

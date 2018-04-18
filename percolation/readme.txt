@@ -1,10 +1,10 @@
 /******************************************************************************
- *  Name:
+ *  Name:Jiashu Wang
  *
- *  Operating system:
+ *  Operating system: Linux
  *  Compiler:
- *  Text editor / IDE:
- *  Hours to complete assignment (optional):
+ *  Text editor / IDE: Eclipse
+ *  Hours to complete assignment (optional): 5
  ******************************************************************************/
 
 

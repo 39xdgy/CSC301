@@ -13,6 +13,11 @@
  *  whether the system percolates?
  *****************************************************************************/
 
+So The Idea that I have is having a matrix to simulate the actually flow. 
+And I have another weighted union list to make the tree to link all the node. 
+When I create the weighted union list, I create two vertial nodes with repersent the top and the bottom. 
+if these two nodes are connected, it means the whole system is percolated. 
+
 
 
 /******************************************************************************
@@ -30,25 +35,26 @@
 
  N          time (seconds)
 ------------------------------
-...
-...
-...
-...
-...
+50          0.10
+100         1.09
+200         15.24
+400         215.28
+800         3582.2        
+
 
 
 (keep N constant)
 
  T          time (seconds)
 ------------------------------
-...
-...
-...
-...
-...
+25          1.11
+50          2.23
+100         4.31
+200         8.51
+400         16.78
 
 
-running time as a function of N and T:  ~
+running time as a function of N and T:  8.41*10^-9 N^4.0 T
 
 
 /******************************************************************************
@@ -59,25 +65,25 @@ running time as a function of N and T:  ~
 
  N          time (seconds)
 ------------------------------
-...
-...
-...
-...
-...
+50          0.03
+100         0.04
+200         0.14
+400         0.43
+800         3.42
 
-
+n ^ 2 2.68 * 10 ^ -6
 (keep N constant)
 
  T          time (seconds)
 ------------------------------
-...
-...
-...
-...
-...
+25          0.15
+50          0.21
+100         0.34
+200         0.64
+400         1.19
 
 
-running time as a function of N and T:  ~
+running time as a function of N and T:  2.68*10^-6 N^2 T
 
 
 /**********************************************************************
@@ -90,7 +96,8 @@ running time as a function of N and T:  ~
  **********************************************************************/
 
 
-
+4N^2 for the matrix
+4N^2 * 2 for the both weight union 
 
 
 
@@ -101,7 +108,7 @@ running time as a function of N and T:  ~
  *  Known bugs / limitations.
  *****************************************************************************/
 
-
+Nothing, everything works
 
 
 /******************************************************************************
@@ -110,13 +117,15 @@ running time as a function of N and T:  ~
  *  include any help from people (including classmates and friends) and
  *  attribute them by name.
  *****************************************************************************/
-
+ 
+A lot of people helped me. Meanly a lot of people in class helped me.
+Also, 
 
 /******************************************************************************
  *  Describe any serious problems you encountered.
  *****************************************************************************/
 
-
+Not a lot of problems encountered. A lot of problems were about index overflow
 
 
 /******************************************************************************
@@ -124,3 +133,6 @@ running time as a function of N and T:  ~
  *  on how much you learned from doing the assignment, and whether
  *  you enjoyed doing it.
  *****************************************************************************/
+ 
+ If we have more help on the readme file, it would be great
+ 

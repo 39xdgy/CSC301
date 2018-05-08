@@ -5,8 +5,8 @@ public class Percolation {
 	private int[][] list;
 	private int size;
 	private int open_count;
-	private QuickFindUF union_list;
-	private QuickFindUF back_wash_solution;
+	private WeightedQuickUnionUF union_list;
+	private WeightedQuickUnionUF back_wash_solution;
 	
 	public Percolation(int N){
 		// create N-by-N grid, with all sites initially blocked
@@ -14,10 +14,10 @@ public class Percolation {
 		list = new int[N][N];
 		size = N;
 		open_count = 0; 
-		union_list = new QuickFindUF(N*N + 2);
-		back_wash_solution = new QuickFindUF(N*N + 1);
+		union_list = new WeightedQuickUnionUF(N*N + 2);
+		back_wash_solution = new WeightedQuickUnionUF(N*N + 1);
 	}
-	
+
 	public void open(int row, int col){
 		// open the site (row, col) if it is not open already
 		if(row < 0 || col < 0 || row >= size || col >= size ){

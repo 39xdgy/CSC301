@@ -48,7 +48,7 @@ public class PercolationStats {
 	//have to be delete before upload
 	public static void main(String[] args) {
 		Stopwatch timer = new Stopwatch();
-		PercolationStats test = new PercolationStats(200, 100);
+		PercolationStats test = new PercolationStats(200, 400);
 		System.out.println(timer.elapsedTime());
 		System.out.println(test.mean());
 		System.out.println(test.stddev());
